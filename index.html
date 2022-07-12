@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooming Soon</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="title" content="Web oleh Pandu Yogia Adiwidia aka INVINITY">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/jquery-3.5.1.min.js"></script>
+    <script src="./assets/jquery.backstretch.min.js"></script>
+</head>
+
+<body>
+    <section class="cooming">
+        <div class="coomingback">
+            <h1>COOMING SOON</h1>
+            <p id="coomingsoon"></p>
+            <p>Masih Dalam Pengerjaan</p>
+        </div>
+    </section>
+</body>
+<footer>
+    <script>
+        // Mengatur waktu akhir perhitungan mundur
+        var countDownDate = new Date("Jul 16, 2022 12:00:00").getTime();
+
+        // Memperbarui hitungan mundur setiap 1 detik
+        var x = setInterval(function () {
+
+            // Untuk mendapatkan tanggal dan waktu hari ini
+            var now = new Date().getTime();
+
+            // Temukan jarak antara sekarang dan tanggal hitung mundur
+            var distance = countDownDate - now;
+
+            // Perhitungan waktu untuk hari, jam, menit dan detik
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Keluarkan hasil dalam elemen dengan id = "demo"
+            document.getElementById("coomingsoon").innerHTML = days + " Hari " + hours + " Jam " +
+                minutes + " Menit " + seconds + " Detik ";
+
+            // Jika hitungan mundur selesai, tulis beberapa teks 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("coomingsoon").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+        $.backstretch(
+            [
+                './assets/background1.jpg', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background2.png', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background3.jpeg', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background4.jpg', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background5.jpg', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background6.jpeg', //sesuaikan dengan nama file gambar dan ekstensinya
+                './assets/background7.jpg', //sesuaikan dengan nama file gambar dan ekstensinya
+            ],
+            {
+                duration: 2000, //durasi tampil per gambar
+                transition: 'fade', //animasi transisi
+                transitionDuration: 1000 //durasi animasi
+            }
+        );
+    </script>
+</footer>
+
+</html>
